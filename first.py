@@ -4,5 +4,6 @@ def sude_nebo_liche(cislo):
     else:
         print(f"Číslo {cislo} je liché")
 
-sude_nebo_liche(5)
-sude_nebo_liche(1000000)
+if __name__ == "__main__":
+    sude_nebo_liche(5)
+    sude_nebo_liche(1000000)
