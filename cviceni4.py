@@ -1,5 +1,24 @@
-from cviceni4_jaccard import jaccardova_vzdalenost_mnozin
-from cviceni4_levenstein import levensteinova_vzdalenost
+def levensteinova_vzdalenost(dotaz1, dotaz2):
+    leventein = 0
+    length = min(len(dotaz1), len(dotaz2))
+    for i in range(length):
+        if dotaz1[i] != dotaz2[i]:
+            leventein += 1
+    leventein += abs(len(dotaz1) - len(dotaz2))
+    return leventein
+
+def jaccardova_vzdalenost_mnozin(mnozina1, mnozina2):
+
+    mnozina1 = set(mnozina1)
+    mnozina2 = set(mnozina2)
+
+    prunik = mnozina1.intersection(mnozina2)
+    sjednoceni = mnozina1.union(mnozina2)
+    # Výpočet Jaccardova indexu
+    jaccard_index = len(prunik) / len(sjednoceni)
+    # Výpočet Jaccardovy vzdálenosti
+    jaccard_distance = 1 - jaccard_index
+    return jaccard_distance
 
 
 def deduplikace_dotazu(dotazy):
